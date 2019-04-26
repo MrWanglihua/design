@@ -87,6 +87,14 @@ public class GPProxy {
      */
     private static String generateSrc(Class<?>[] interfaces) {
 
+        if(interfaces.length >65535){
+            try {
+                throw new Exception("堆越界");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
         StringBuffer sb = new StringBuffer();
         sb.append("package com.example.design.proxy.dynamicproxy.gpproxy;" + ln);
         sb.append("import com.example.design.proxy.Person;" + ln);
