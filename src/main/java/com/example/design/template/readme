@@ -1,3 +1,187 @@
 1、思考：模板模式除了继承以外，还有哪些实现方式？
 可以通过配置文件，例如xml中配置的class类的全名以及节点下的method方法名，使用反射调用，只需要写个Util类传入配置文件，
 按照特定的解析规则即可。
+2、> 1、什么是模板方式设计模式
+  >
+  ①、模板方法模式是所有模式中最为常见的几个模式之一，是基于继承的代码复用的基本技术。
+  ②、定义：定义一个操作中算法的骨架，而将一些步骤延迟到子类中，模板方法使得子类可以不改变算法的结构即可重定义该算法的某些特定步骤--属于行为性设计模式
+
+  　③、 通俗点的理解就是 ：完成一件事情，有固定的数个步骤，但是每个步骤根据对象的不同，而实现细节不同；就可以在父类中定义一个完成该事情的总方法，按照完成事件需要的步骤去调用其每个步骤的实现方法。每个步骤的具体实现，由子类完成。
+  　 **模板模式的关键是：**子类可以置换掉父类的可变部分，但是子类却不可以改变模板方法所代表的顶级逻辑。
+  　
+
+  > 2、模板方法应用场景
+  >
+  1、一次性实现一个算法的不变的部分，并将可变的行为留给子类来实现。
+  2、各子类中公共的行为被提取出来并集中到一个公共的父类中，从而避免代码重复。
+
+  　
+
+  > 3、模板方法模式中的方法
+
+  模板方法中的方法可以分为两大类：模板方法和基本方法。
+
+  　　①、模板方法
+  　　一个模板方法是定义在抽象类中的，把基本操作方法组合在一起形成一个总算法或一个总行为的方法。
+
+  　　一个抽象类可以有任意多个模板方法，而不限于一个。每一个模板方法都可以调用任意多个具体方法。
+
+  　　②、基本方法
+  　　基本方法又可以分为三种：抽象方法(Abstract Method)、具体方法(Concrete Method)和钩子方法(Hook Method)。
+
+  　　●　　抽象方法：一个抽象方法由抽象类声明，由具体子类实现。在Java语言里抽象方法以abstract关键字标示。
+
+  　　●　　具体方法：一个具体方法由抽象类声明并实现，而子类并不实现或置换。
+
+  　　●　　钩子方法：一个钩子方法由抽象类声明并实现，而子类会加以扩展。通常抽象类给出的实现是一个空实现，作为方法的默认实现。
+
+  　　在上面的例子中，AbstractTemplate是一个抽象类，它带有三个方法。其中abstractMethod()是一个抽象方法，它由抽象类声明为抽象方法，并由子类实现；hookMethod()是一个钩子方法，它由抽象类声明并提供默认实现，并且由子类置换掉。concreteMethod()是一个具体方法，它由抽象类声明并实现。
+
+  　　默认钩子方法
+  　　一个钩子方法常常由抽象类给出一个空实现作为此方法的默认实现。这种空的钩子方法叫做“Do Nothing Hook”。显然，这种默认钩子方法在缺省适配模式里面已经见过了，一个缺省适配模式讲的是一个类为一个接口提供一个默认的空实现，从而使得缺省适配类的子类不必像实现接口那样必须给出所有方法的实现，因为通常一个具体类并不需要所有的方法。
+
+  　　命名规则
+  　　命名规则是设计师之间赖以沟通的管道之一，使用恰当的命名规则可以帮助不同设计师之间的沟通。
+
+  　　钩子方法的名字应当以do开始，这是熟悉设计模式的Java开发人员的标准做法。在上面的例子中，钩子方法hookMethod()应当以do开头；在HttpServlet类中，也遵从这一命名规则，如doGet()、doPost()等方法。
+
+
+
+  > 4、代码实例
+
+  课程创建流程为例：发布预习资料-->制作课件 PPT-->在线直播--> 提 交 课 堂 笔 记 --> 提 交 源 码 --> 布 置 作 业 --> 检 查 作 业 。
+
+   - 1、NetworkCourse 抽象类：
+
+  ```
+  package com.example.design.template;
+
+  /**
+   * 模板会有一个或者多个未现实方法，
+   * 而且这几个未实现方法有固定的执行循序
+   * Created by Tom.
+   */
+  public abstract class NetworkCourse {
+      protected final void createCourse() {
+  //1、发布预习资料
+          this.postPreResource();
+  //2、制作 PPT 课件
+          this.createPPT();
+  //3、在线直播
+          this.liveVideo();
+  //4、提交课件、课堂笔记
+          this.postNote();
+  //5、提交源码
+          this.postSource();
+  //6、布置作业，有些课是没有作业，有些课是有作业的
+  //如果有作业的话，检查作业，如果没作业，完成了
+          if (needHomework()) {
+              checkHomework();
+          }
+      }
+
+      abstract void checkHomework();
+
+      //钩子方法：实现流程的微调
+      protected boolean needHomework() {
+          return false;
+      }
+
+      final void postSource() {
+          System.out.println("提交源代码");
+      }
+
+      final void postNote() {
+          System.out.println("提交课件和笔记");
+      }
+
+      final void liveVideo() {
+          System.out.println("直播授课");
+      }
+
+      final void createPPT() {
+          System.out.println("创建备课 PPT");
+      }
+
+      final void postPreResource() {
+          System.out.println("分发预习资料");
+      }
+  }
+  ```
+  上面的代码中有个钩子方法可能有些小伙伴还不是太理解，在此我稍作解释。设计钩子方法的主要目的是用来干预执行流程，使得我们控制行为流程更加灵活，更符合实际业
+  务的需求。钩子方法的返回值一般为适合条件分支语句的返回值（如 boolean、int 等）。小伙伴们可以根据自己的业务场景来决定是否需要使用钩子方法。
+  例子可见：https://blog.csdn.net/weixin_38982636/article/details/89851575
+
+
+   - 2、JavaCourse 类：
+
+  ```
+  package com.example.design.template;
+
+  public class JavaCourse extends NetworkCourse {
+      void checkHomework() {
+          System.out.println("检查 Java 的架构课件");
+      }
+  }
+  ```
+
+   - 3、创建 BigDataCourse 类：
+
+  ```
+  package com.example.design.template;
+
+  public class BigDataCourse extends NetworkCourse {
+      private boolean needHomeworkFlag = false;
+
+      public BigDataCourse(boolean needHomeworkFlag) {
+          this.needHomeworkFlag = needHomeworkFlag;
+      }
+
+      void checkHomework() {
+          System.out.println("检查大数据的课后作业");
+      }
+
+      @Override
+      protected boolean needHomework() {
+          return this.needHomeworkFlag;
+      }
+  }
+  ```
+
+   - 4、创建测试类
+
+  ```
+  package com.example.design.template;
+
+  public class NetworkCourseTest {
+      public static void main(String[] args) {
+          System.out.println("---Java 架构师课程---");
+          NetworkCourse javaCourse = new JavaCourse();
+          javaCourse.createCourse();
+          System.out.println("---大数据课程---");
+          NetworkCourse bigDataCourse = new BigDataCourse(true);
+          bigDataCourse.createCourse();
+      }
+  }
+  ```
+
+
+
+  > 5、模板模式的优缺点
+
+  优点：
+  1、利用模板方法将相同处理逻辑的代码放到抽象父类中，可以提高代码的复用性。
+  2、将不同的代码不同的子类中，通过对子类的扩展增加新的行为，提高代码的扩展性。
+  3、把不变的行为写在父类上，去除子类的重复代码，提供了一个很好的代码复用平台，
+  符合开闭原则。
+  缺点：
+  1、类数目的增加，每一个抽象类都需要一个子类来实现，这样导致类的个数增加。
+  2、类数量的增加，间接地增加了系统实现的复杂度。
+  3、继承关系自身缺点，如果父类添加新的抽象方法，所有子类都要改一遍。
+  模板方法模式比较简单，相信小伙伴们肯定能学会，也肯定能理解好！只要勤加练习，
+  多结合业务场景思考问题，就能够把模板方法模式运用好。
+
+
+  源代码路径：https://github.com/MrWanglihua/design/tree/master/src/main/java/com/example/design/template
+  参考博文：https://www.cnblogs.com/qiumingcheng/p/5219664.html
+
