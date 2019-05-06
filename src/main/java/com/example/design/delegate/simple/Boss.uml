@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>com.example.design.delegate.Boss</OriginalElement>
+  <nodes>
+    <node x="12.25" y="208.0">com.example.design.delegate.Boss</node>
+    <node x="0.0" y="0.0">com.example.design.delegate.EmployeeB</node>
+    <node x="95.5" y="104.0">com.example.design.delegate.Leader</node>
+    <node x="94.5" y="312.0">com.example.design.delegate.DelegateTest</node>
+    <node x="191.0" y="0.0">com.example.design.delegate.EmployeeA</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.example.design.delegate.DelegateTest" target="com.example.design.delegate.Leader">
+      <point x="43.25" y="-27.0" />
+      <point x="224.25" y="287.0" />
+      <point x="240.75" y="287.0" />
+      <point x="240.75" y="183.0" />
+      <point x="223.75" y="183.0" />
+      <point x="42.75" y="27.0" />
+    </edge>
+    <edge source="com.example.design.delegate.DelegateTest" target="com.example.design.delegate.Boss">
+      <point x="-43.25" y="-27.0" />
+      <point x="137.75" y="287.0" />
+      <point x="121.25" y="287.0" />
+      <point x="0.0" y="27.0" />
+    </edge>
+    <edge source="com.example.design.delegate.Leader" target="com.example.design.delegate.EmployeeA">
+      <point x="42.75" y="-27.0" />
+      <point x="223.75" y="79.0" />
+      <point x="276.5" y="79.0" />
+      <point x="0.0" y="27.0" />
+    </edge>
+    <edge source="com.example.design.delegate.Leader" target="com.example.design.delegate.EmployeeB">
+      <point x="-42.75" y="-27.0" />
+      <point x="138.25" y="79.0" />
+      <point x="85.5" y="79.0" />
+      <point x="0.0" y="27.0" />
+    </edge>
+    <edge source="com.example.design.delegate.Boss" target="com.example.design.delegate.Leader">
+      <point x="0.0" y="-27.0" />
+      <point x="121.25" y="183.0" />
+      <point x="138.25" y="183.0" />
+      <point x="-42.75" y="27.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="181.0" y="183.0" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Methods</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
