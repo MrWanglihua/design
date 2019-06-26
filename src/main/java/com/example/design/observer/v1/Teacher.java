@@ -7,7 +7,6 @@ import java.util.Observer;
 
 /**
  * 观察者
- * Created by Tom.
  */
 public class Teacher implements Observer {
     private String name;
