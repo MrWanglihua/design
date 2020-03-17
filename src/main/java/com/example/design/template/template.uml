@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>com.example.design.template</OriginalElement>
+  <nodes>
+    <node x="227.31666666666666" y="0.0">com.example.design.template.NetworkCourse</node>
+    <node x="239.0" y="276.5">com.example.design.template.JavaCourse</node>
+    <node x="252.5" y="392.0">com.example.design.template.NetworkCourseTest</node>
+    <node x="0.0" y="265.0">com.example.design.template.BigDataCourse</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.example.design.template.NetworkCourseTest" target="com.example.design.template.NetworkCourse">
+      <point x="57.66666666666668" y="-27.0" />
+      <point x="396.6666666666667" y="367.0" />
+      <point x="449.5" y="367.0" />
+      <point x="449.5" y="240.0" />
+      <point x="409.81666666666666" y="240.0" />
+      <point x="73.0" y="107.5" />
+    </edge>
+    <edge source="com.example.design.template.NetworkCourseTest" target="com.example.design.template.BigDataCourse">
+      <point x="-57.66666666666663" y="-27.0" />
+      <point x="281.33333333333337" y="367.0" />
+      <point x="109.5" y="367.0" />
+      <point x="0.0" y="38.5" />
+    </edge>
+    <edge source="com.example.design.template.BigDataCourse" target="com.example.design.template.NetworkCourse">
+      <point x="0.0" y="-38.5" />
+      <point x="109.5" y="240.0" />
+      <point x="263.81666666666666" y="240.0" />
+      <point x="-73.0" y="107.5" />
+    </edge>
+    <edge source="com.example.design.template.JavaCourse" target="com.example.design.template.NetworkCourse">
+      <point x="0.0" y="-27.0" />
+      <point x="339.0" y="240.0" />
+      <point x="336.81666666666666" y="240.0" />
+      <point x="0.0" y="107.5" />
+    </edge>
+    <edge source="com.example.design.template.NetworkCourseTest" target="com.example.design.template.JavaCourse">
+      <point x="0.0" y="-27.0" />
+      <point x="0.0" y="27.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="134.5" y="236.5" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Methods</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

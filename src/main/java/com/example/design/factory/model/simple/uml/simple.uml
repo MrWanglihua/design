@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>com.example.design.factory.model.simple</OriginalElement>
+  <nodes>
+    <node x="90.0" y="0.0">com.example.design.factory.model.simple.Course</node>
+    <node x="151.0" y="233.0">com.example.design.factory.model.simple.Test</node>
+    <node x="148.0" y="81.0">com.example.design.factory.model.simple.JavaCourse</node>
+    <node x="0.0" y="233.0">com.example.design.factory.model.simple.uml</node>
+    <node x="0.0" y="81.0">com.example.design.factory.model.simple.PythonCourse</node>
+    <node x="0.0" y="157.0">com.example.design.factory.model.simple.CourseFactory</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.example.design.factory.model.simple.JavaCourse" target="com.example.design.factory.model.simple.Course">
+      <point x="0.0" y="-15.5" />
+      <point x="205.0" y="56.0" />
+      <point x="156.75" y="56.0" />
+      <point x="22.25" y="15.5" />
+    </edge>
+    <edge source="com.example.design.factory.model.simple.PythonCourse" target="com.example.design.factory.model.simple.Course">
+      <point x="0.0" y="-15.5" />
+      <point x="64.0" y="56.0" />
+      <point x="112.25" y="56.0" />
+      <point x="-22.25" y="15.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="131.0" y="132.0" />
+  <SelectedNodes>
+    <node>com.example.design.factory.model.simple.PythonCourse</node>
+  </SelectedNodes>
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
